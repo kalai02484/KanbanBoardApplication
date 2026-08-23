@@ -1,4 +1,3 @@
-import { create } from "flowbite-react/cli/commands/create";
 import { useContext, useState } from "react";
 import { createContext, useEffect } from "react";
 
@@ -15,7 +14,7 @@ export function TaskProvider({ children }) {
   }, [tasks]);
 
   //Add Task
-  const addTasks = (task) => {
+  const addTask = (task) => {
     const newTask = {
       ...task,
       id: Date.now(),

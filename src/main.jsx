@@ -6,5 +6,5 @@ import { TaskProvider } from "./Context/TaskContext.jsx";
 createRoot(document.getElementById("root")).render(
   <TaskProvider>
     <App />
-  </TaskProvider>,
+  </TaskProvider>
 );
