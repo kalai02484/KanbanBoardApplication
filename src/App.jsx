@@ -16,7 +16,7 @@ const App = () => {
         <div className="">
           <Button
             type="button"
-            class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-0 focus:outline-none focus:ring-purple-200 rounded-md font-medium text-sm px-4 py-2.5 text-center leading-5 cursor-pointer transition-all duration-300 ease-in-out"
+            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l focus:ring-0 focus:outline-none focus:ring-purple-200 rounded-md font-medium text-sm px-4 py-2.5 text-center leading-5 cursor-pointer transition-all duration-300 ease-in-out"
           >
             Add Task
           </Button>
