@@ -2,12 +2,28 @@ import React, { useState } from "react";
 import { useTasks } from "../context/TaskContext";
 
 const TaskForm = () => {
-  const { addForm } = useTasks();
+  const { addTask } = useTasks();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("todo");
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!title.trim()) {
+      return;
+    }
+
+    addTask({
+      title,
+      description,
+      status,
+    });
+
+    setTitle("");
+    setDescription("");
+    setStatus("todo");
+  };
 
   return (
     <form
