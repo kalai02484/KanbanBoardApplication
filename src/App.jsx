@@ -24,13 +24,13 @@ const App = () => {
         </div>
       </div>
 
-      <div className="bg-[#2c2c2e] mx-auto p-4 md:p-6 mt-4 rounded-xl">
+      {/* <div className="bg-[#2c2c2e] mx-auto p-4 md:p-6 mt-4 rounded-xl"> */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <Column status="todo" title="To Do" />
           <Column status="inprogress" title="In Progress" />
           <Column status="done" title="Done" />
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

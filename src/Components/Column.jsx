@@ -14,7 +14,7 @@ function Column({ status, title }) {
   return (
     <section
       ref={setNodeRef}
-      className="min-h-[500px] rounded-xl bg-[#1c1c1e] p-4"
+      className="min-h-[500px] rounded-xl bg-[#2c2c2e]  mt-6 p-4"
     >
       <div className="mb-4 flex items-center justify-between">
         <h2 className="font-semibold text-slate-300">{title}</h2>
