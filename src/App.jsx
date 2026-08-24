@@ -1,6 +1,7 @@
 import { Button } from "flowbite-react";
 import React from "react";
 import Column from "./Components/Column";
+import TaskForm from "./Components/TaskForm";
 
 const App = () => {
   return (
@@ -8,7 +9,7 @@ const App = () => {
       <h1 className="text-xl text-[#0bf6ee] font-bold text-center mb-5">
         Task Mangagement Application - Kanban Board
       </h1>
-      <div className="bg-[#2c2c2e] py-4 px-6 rounded-xl flex justify-between items-center">
+      {/* <div className="bg-[#2c2c2e] py-4 px-6 rounded-xl flex justify-between items-center">
         <div className="">
           <h4 className="text-lg font-medium text-[#f5f0e8]">
             Please add a task
@@ -22,7 +23,9 @@ const App = () => {
             Add Task
           </Button>
         </div>
-      </div>
+      </div> */}
+
+      <TaskForm/>
 
       {/* <div className="bg-[#2c2c2e] mx-auto p-4 md:p-6 mt-4 rounded-xl"> */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
