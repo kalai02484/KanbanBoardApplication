@@ -25,11 +25,11 @@ export function TaskProvider({ children }) {
 
   //Update Task
   const updateTask = (id, updatedData) => {
-    setTasks((previousTasks) => {
-      previousTasks.map((task) => {
-        task.id === id ? { ...task, ...updatedData } : task;
-      });
-    });
+    setTasks((previousTasks) =>
+      previousTasks.map((task) =>
+        task.id === id ? { ...task, ...updatedData } : task,
+      ),
+    );
   };
 
   //Delete Task

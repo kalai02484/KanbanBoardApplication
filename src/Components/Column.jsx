@@ -1,11 +1,11 @@
 import { useDroppable } from "@dnd-kit/react";
-import { useTasks } from "../context/TaskContext";
+import { useTasks } from "../Context/TaskContext";
 import TaskCard from "./TaskCard";
 
 function Column({ status, title }) {
   const { tasks } = useTasks();
 
-  const { setNodeRef } = useDroppable({
+  const { ref } = useDroppable({
     id: status,
   });
 
@@ -13,8 +13,8 @@ function Column({ status, title }) {
 
   return (
     <section
-      ref={setNodeRef}
-      className="min-h-[500px] rounded-xl bg-[#2c2c2e]  mt-6 p-4"
+      ref={ref}
+      className="min-h-125 rounded-xl bg-[#2c2c2e] mt-6 p-4"
     >
       <div className="mb-4 flex items-center justify-between">
         <h2 className="font-semibold text-slate-300">{title}</h2>

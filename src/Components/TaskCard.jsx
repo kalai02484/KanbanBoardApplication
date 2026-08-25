@@ -1,39 +1,33 @@
-import React from "react";
-import { useTasks } from "../context/TaskContext";
+import { useTasks } from "../Context/TaskContext";
 import { useDraggable } from "@dnd-kit/react";
 
 const TaskCard = ({ task }) => {
   const { deleteTask } = useTasks();
 
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+  const { ref, isDragging } = useDraggable({
     id: task.id,
   });
 
-  const handleDelete = (id) => {
+  const style = {
+    opacity: isDragging ? 0.5 : 1,
+  };
+
+  const handleDelete = (event, id) => {
     event.stopPropagation();
-    console.log(id);
     deleteTask(id);
   };
 
-  const style = transform
-    ? {
-        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-      }
-    : undefined;
-
   return (
     <article
-      className="cursor-grab rounded-md p-4 transition hover:bg-stone-500 active:cursor-grabbing"
-      ref={setNodeRef}
+      className="cursor-grab bg-[#1c1c1e] rounded-md p-4 transition hover:bg-stone-500 active:cursor-grabbing"
+      ref={ref}
       style={style}
-      {...listeners}
-      {...attributes}
     >
       <div className="flex items-start justify-between gap-3">
         <h3 className="font-bold text-slate-300">{task.title}</h3>
         <button
           className="text-sm text-red-500 hover:text-red-700"
-          onClick={() => handleDelete(task.id)}
+          onClick={(event) => handleDelete(event, task.id)}
         >
           Delete
         </button>

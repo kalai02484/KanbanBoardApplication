@@ -1,9 +1,38 @@
-import { Button } from "flowbite-react";
-import React from "react";
 import Column from "./Components/Column";
 import TaskForm from "./Components/TaskForm";
+import { useTasks } from "./Context/TaskContext";
+import { DragDropProvider } from "@dnd-kit/react";
 
 const App = () => {
+  const DndBoard = () => {
+    const { moveTask } = useTasks();
+
+    const handleDragEnd = (event) => {
+      if (event.canceled) {
+        return;
+      }
+
+      const taskId = event.operation.source?.id;
+      const status = event.operation.target?.id;
+
+      if (taskId == null || status == null) {
+        return;
+      }
+
+      moveTask(taskId, status);
+    };
+
+    return (
+      <DragDropProvider onDragEnd={handleDragEnd}>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <Column status="todo" title="To Do" />
+          <Column status="inprogress" title="In Progress" />
+          <Column status="done" title="Done" />
+        </div>
+      </DragDropProvider>
+    );
+  };
+
   return (
     <>
       <h1 className="text-xl text-[#0bf6ee] font-bold text-center mb-5">
@@ -25,14 +54,16 @@ const App = () => {
         </div>
       </div> */}
 
-      <TaskForm/>
+      <TaskForm />
+
+      <DndBoard/>
 
       {/* <div className="bg-[#2c2c2e] mx-auto p-4 md:p-6 mt-4 rounded-xl"> */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <Column status="todo" title="To Do" />
           <Column status="inprogress" title="In Progress" />
           <Column status="done" title="Done" />
-        </div>
+        </div> */}
       {/* </div> */}
     </>
   );
