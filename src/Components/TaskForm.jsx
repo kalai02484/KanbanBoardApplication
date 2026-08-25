@@ -35,7 +35,7 @@ const TaskForm = () => {
       <div className="flex justify-between items-center">
         <div className="">
           <h4 className="text-lg font-medium text-[#f5f0e8]">
-            Please add a task
+            Welcome to Taskify ! Please add your task and stay organized
           </h4>
         </div>
         <div className="">
