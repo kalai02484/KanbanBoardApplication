@@ -6,6 +6,7 @@ const TaskForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("todo");
+  const [priority, setPriority] = useState("low");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +19,7 @@ const TaskForm = () => {
       title,
       description,
       status,
+      priority
     });
 
     setTitle("");
@@ -46,42 +48,42 @@ const TaskForm = () => {
         </div>
       </div>
 
-
       <div className="grid gap-4 md:grid-cols-3 my-6">
         <input
           type="text"
           placeholder="Task title"
           value={title}
-          onChange={(event) =>
-            setTitle(event.target.value)
-          }
-          className="rounded-lg border px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500"
-        />
-
-        <input
-          type="text"
-          placeholder="Description"
-          value={description}
-          onChange={(event) =>
-            setDescription(event.target.value)
-          }
+          onChange={(event) => setTitle(event.target.value)}
           className="rounded-lg border px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500"
         />
 
         <select
           value={status}
-          onChange={(e) =>
-            setStatus(e.target.value)
-          }
+          onChange={(e) => setStatus(e.target.value)}
           className="rounded-lg border px-4 py-2 bg-[#2c2c2e]"
         >
           <option value="todo">To Do</option>
-          <option value="inprogress">
-            In Progress
-          </option>
+          <option value="inprogress">In Progress</option>
           <option value="done">Done</option>
         </select>
+
+        <select
+          value={priority}
+          onChange={(e) => setPriority(e.target.value)}
+          className="rounded-lg border px-4 py-2 bg-[#2c2c2e]"
+        >
+          <option value="low">Low Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
       </div>
+      <textarea
+        type="text"
+        placeholder="Description"
+        value={description}
+        onChange={(event) => setDescription(event.target.value)}
+        className="rounded-lg border px-4 py-2 mb-4 outline-none focus:ring-2 focus:ring-blue-500 w-full"
+      />
     </form>
   );
 };

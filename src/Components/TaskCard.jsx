@@ -21,6 +21,12 @@ const TaskCard = ({ task }) => {
     deleteTask(id);
   };
 
+  const priorityStyles = {
+    low: "bg-green-100 text-green-700",
+    medium: "bg-yellow-100 text-yellow-700",
+    high: "bg-red-100 text-red-700",
+  };
+
   return (
     <>
       <article
@@ -45,7 +51,15 @@ const TaskCard = ({ task }) => {
             </button>
           </div>
         </div>
-        <p className="mt-2 text-sm text-slate-400">{task.description}</p>
+        <p className="mt-2 text-sm text-slate-400 mb-2">{task.description}</p>
+
+        <span
+          className={`rounded-sm px-3 py-1 text-xs ${
+            priorityStyles[task.priority]
+          }`}
+        >
+          {task.priority}
+        </span>
       </article>
 
       {isModalOpen && (
