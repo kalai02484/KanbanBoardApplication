@@ -5,6 +5,8 @@ import TaskCard from "./TaskCard";
 function Column({ status, title }) {
   const { tasks } = useTasks();
 
+  //console.log(tasks);
+
   const { ref } = useDroppable({
     id: status,
   });
